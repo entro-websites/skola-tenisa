@@ -243,36 +243,49 @@
   }
 
   /* ===== HERO ===== */
+  /* Zameni hero.jpg svojom fotografijom terena (preporuka: 1920x1080, pejzaž). */
   .hero {
-    background-color: var(--white);
-    padding-top: 72px;
-    padding-bottom: 72px;
+    position: relative;
+    background-color: #143d26;
+    background-image:
+      linear-gradient(rgba(9, 28, 17, 0.72), rgba(9, 28, 17, 0.86)),
+      url('hero.jpg'),
+      linear-gradient(160deg, #1d6d3f 0%, #0b3d22 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    border-bottom: none;
+    text-align: center;
   }
 
   .hero-grid {
     display: flex;
     flex-direction: column;
-    gap: 48px;
+    align-items: center;
+    gap: 0;
   }
 
   .hero-text {
-    max-width: 620px;
+    max-width: 760px;
+    margin: 0 auto;
   }
 
   .hero-eyebrow {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background-color: var(--secondary-soft);
-    border: 1px solid #b8ecd0;
+    background-color: rgba(0, 197, 107, 0.14);
+    border: 1px solid rgba(0, 197, 107, 0.45);
     border-radius: 999px;
     padding: 7px 16px 7px 13px;
-    color: var(--primary-dark);
+    color: var(--secondary);
     font-weight: 700;
     font-size: 13px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    margin-bottom: 18px;
+    margin-bottom: 22px;
   }
 
   .hero-eyebrow::before {
@@ -284,7 +297,8 @@
   }
 
   h1.hero-title {
-    font-size: 68px;
+    font-size: 72px;
+    color: var(--white);
     margin-bottom: 22px;
   }
 
@@ -295,49 +309,70 @@
     margin-bottom: 32px;
   }
 
+  .hero .hero-sub {
+    color: #d5ddd6;
+    max-width: 58ch;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 36px;
+  }
+
   .hero-actions {
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
-  .hero-img-placeholder {
-    width: 100%;
-    height: 340px;
-    background-color: #e4e8e3;
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--gray);
-    font-weight: 600;
-    font-size: 14px;
-    text-align: center;
-    letter-spacing: 0.5px;
+  .btn-accent {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    color: var(--ink);
+  }
+
+  .btn-accent:hover {
+    background-color: var(--secondary-dark);
+    border-color: var(--secondary-dark);
+  }
+
+  .btn-light {
+    background-color: transparent;
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+  }
+
+  .btn-light:hover {
+    background-color: var(--white);
+    border-color: var(--white);
+    color: var(--primary-dark);
   }
 
   .hero-stats {
     display: flex;
-    gap: 40px;
-    margin-top: 40px;
+    justify-content: center;
+    gap: 0;
+    margin-top: 56px;
     flex-wrap: wrap;
   }
 
   .hero-stats > div {
-    border-left: 3px solid var(--secondary);
-    padding-left: 16px;
+    padding: 0 40px;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .hero-stats > div:first-child {
+    border-left: none;
   }
 
   .hero-stat-num {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 34px;
-    color: var(--primary);
+    font-size: 38px;
+    color: var(--secondary);
   }
 
   .hero-stat-label {
     font-size: 13px;
-    color: var(--gray);
+    color: #c3cbc4;
   }
 
   /* ===== O SKOLI ===== */
@@ -741,17 +776,6 @@
     .hamburger {
       display: none;
     }
-    .hero-grid {
-      flex-direction: row;
-      align-items: center;
-    }
-    .hero-text {
-      flex: 1 1 55%;
-    }
-    .hero-img-placeholder {
-      flex: 1 1 40%;
-      height: 420px;
-    }
   }
 
   @media (max-width: 991px) {
@@ -796,8 +820,21 @@
     .cta-actions .btn {
       width: 100%;
     }
+    .hero {
+      padding-top: 84px;
+      padding-bottom: 84px;
+    }
     .hero-stats {
-      gap: 28px;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .hero-stats > div {
+      padding: 0;
+      border-left: none;
+    }
+    .hero-actions .btn {
+      width: 100%;
     }
     .footer-grid {
       flex-direction: column;
@@ -858,8 +895,8 @@
         <h1 class="hero-title">Prvi servis počinje u Velikom parku</h1>
         <p class="hero-sub">Učimo decu, tinejdžere i odrasle da igraju tenis, od prvog udarca reketom do prvog turnira. Dođi na probni trening i vidi kako to izgleda kod nas.</p>
         <div class="hero-actions">
-          <a href="#kontakt" class="btn">Prijavi se za probni trening</a>
-          <a href="#treneri" class="btn btn-outline">Upoznaj trenere</a>
+          <a href="#kontakt" class="btn btn-accent">Prijavi se za probni trening</a>
+          <a href="#treneri" class="btn btn-light">Upoznaj trenere</a>
         </div>
         <div class="hero-stats">
           <div>
@@ -875,9 +912,6 @@
             <div class="hero-stat-label">teren, Veliki park</div>
           </div>
         </div>
-      </div>
-      <div class="hero-img-placeholder" role="img" aria-label="Fotografija deteta i trenera na terenu u Velikom parku">
-        FOTOGRAFIJA - TRENING NA TERENU U VELIKOM PARKU
       </div>
     </div>
   </section>
