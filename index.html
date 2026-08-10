@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top Spin - Škola tenisa Kragujevac</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #186338;
+    --primary-dark: #104a29;
+    --ink: #1c1f1c;
+    --gray: #5a625b;
+    --line: #dfe3df;
+    --bg: #faf9f6;
+    --white: #ffffff;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Manrope', sans-serif;
+    color: var(--ink);
+    background-color: var(--bg);
+    font-size: 17px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.5px;
+    line-height: 1.05;
+    color: var(--ink);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  /* ===== NAVBAR ===== */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 500;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+  }
+
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--primary);
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  .logo span {
+    color: var(--ink);
+  }
+
+  .nav-links {
+    display: none;
+    list-style: none;
+    align-items: center;
+    gap: 36px;
+  }
+
+  .nav-links a.navlink {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .nav-links a.navlink:hover {
+    color: var(--primary);
+  }
+
+  .btn {
+    display: inline-block;
+    background-color: var(--primary);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 15px;
+    padding: 14px 28px;
+    border-radius: 8px;
+    border: 1px solid var(--primary);
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .btn:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--primary);
+    color: var(--white);
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--ink);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .mobile-menu.open {
+    display: flex;
+  }
+
+  .mobile-menu .wrap {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 28px;
+    gap: 20px;
+  }
+
+  .mobile-menu a.navlink {
+    font-weight: 600;
+    font-size: 17px;
+  }
+
+  .mobile-menu .btn {
+    width: 100%;
+  }
+
+  /* ===== SECTIONS ===== */
+  section {
+    padding-top: 96px;
+    padding-bottom: 96px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  section:last-of-type {
+    border-bottom: none;
+  }
+
+  .section-tag {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .section-title {
+    font-size: 40px;
+    margin-bottom: 20px;
+    max-width: 700px;
+  }
+
+  .section-lead {
+    max-width: 62ch;
+    color: var(--gray);
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background-color: var(--white);
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .hero-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .hero-text {
+    max-width: 620px;
+  }
+
+  .hero-eyebrow {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  h1.hero-title {
+    font-size: 68px;
+    margin-bottom: 22px;
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    color: var(--gray);
+    max-width: 55ch;
+    margin-bottom: 32px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .hero-img-placeholder {
+    width: 100%;
+    height: 340px;
+    background-color: #e4e8e3;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray);
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+
+  .hero-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 34px;
+    color: var(--primary);
+  }
+
+  .hero-stat-label {
+    font-size: 13px;
+    color: var(--gray);
+  }
+
+  /* ===== O SKOLI ===== */
+  .about-grid {
+    display: flex;
+    gap: 64px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .about-text {
+    flex: 1 1 420px;
+  }
+
+  .about-text p {
+    max-width: 60ch;
+    color: var(--gray);
+    margin-bottom: 18px;
+  }
+
+  .about-list {
+    list-style: none;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .about-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .about-list svg {
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .about-img {
+    flex: 1 1 340px;
+    height: 320px;
+    background-color: #e4e8e3;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray);
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  /* ===== TRENERI ===== */
+  .coach-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+  }
+
+  .coach-card {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--white);
+  }
+
+  .coach-photo {
+    width: 100%;
+    height: 260px;
+    background-color: #e4e8e3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray);
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    padding: 12px;
+  }
+
+  .coach-body {
+    padding: 24px;
+  }
+
+  .coach-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+
+  .coach-role {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 14px;
+  }
+
+  .coach-desc {
+    color: var(--gray);
+    font-size: 15px;
+  }
+
+  /* ===== KAKO IZGLEDA PROBNI TRENING ===== */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+  }
+
+  .step {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 32px 28px;
+    background-color: var(--white);
+  }
+
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px;
+    color: var(--primary);
+    margin-bottom: 14px;
+  }
+
+  .step h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .step p {
+    color: var(--gray);
+    font-size: 15px;
+  }
+
+  /* ===== ZA KOGA ===== */
+  .who-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+  }
+
+  .who-card {
+    padding: 0;
+  }
+
+  .who-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    margin-top: 18px;
+  }
+
+  .who-card p {
+    color: var(--gray);
+    font-size: 15px;
+    max-width: 40ch;
+  }
+
+  .who-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+  }
+
+  /* ===== LOKACIJA ===== */
+  .location-grid {
+    display: flex;
+    gap: 64px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .location-info {
+    flex: 1 1 340px;
+  }
+
+  .location-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+
+  .location-row svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .location-row h4 {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .location-row p, .location-row a {
+    color: var(--gray);
+    font-size: 15px;
+  }
+
+  .map-placeholder {
+    flex: 1 1 400px;
+    height: 320px;
+    background-color: #e4e8e3;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray);
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  /* ===== CTA / KONTAKT ===== */
+  .cta-section {
+    background-color: var(--primary);
+    border-bottom: none;
+  }
+
+  .cta-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .cta-inner h2 {
+    color: var(--white);
+    font-size: 40px;
+    max-width: 520px;
+  }
+
+  .cta-inner p {
+    color: #d7e6dc;
+    max-width: 45ch;
+    margin-top: 12px;
+    font-size: 16px;
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .btn-white {
+    background-color: var(--white);
+    color: var(--primary);
+    border: 1px solid var(--white);
+  }
+
+  .btn-white:hover {
+    background-color: #eef3ee;
+  }
+
+  .cta-phone {
+    color: var(--white);
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background-color: var(--ink);
+    padding-top: 64px;
+    padding-bottom: 40px;
+  }
+
+  .footer-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #33362f;
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .footer-logo span {
+    color: #7fbb95;
+  }
+
+  .footer-col p, .footer-col a {
+    color: #b9bdb5;
+    font-size: 15px;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .footer-col h4 {
+    font-family: 'Manrope', sans-serif;
+    color: var(--white);
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+  }
+
+  .footer-bottom {
+    padding-top: 24px;
+    color: #7d8177;
+    font-size: 13px;
+    text-align: center;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (min-width: 992px) {
+    .nav-links {
+      display: flex;
+    }
+    .nav-cta {
+      display: inline-block;
+    }
+    .hamburger {
+      display: none;
+    }
+    .hero-grid {
+      flex-direction: row;
+      align-items: center;
+    }
+    .hero-text {
+      flex: 1 1 55%;
+    }
+    .hero-img-placeholder {
+      flex: 1 1 40%;
+      height: 420px;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .nav-cta {
+      display: none;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .coach-grid, .steps, .who-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    section {
+      padding-top: 64px;
+      padding-bottom: 64px;
+    }
+    h1.hero-title {
+      font-size: 46px;
+    }
+    .section-title {
+      font-size: 32px;
+    }
+    .coach-grid, .steps, .who-grid {
+      grid-template-columns: 1fr;
+    }
+    .about-grid, .location-grid {
+      flex-direction: column;
+    }
+    .cta-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .cta-actions {
+      width: 100%;
+    }
+    .cta-actions .btn {
+      width: 100%;
+    }
+    .hero-stats {
+      gap: 28px;
+    }
+    .footer-grid {
+      flex-direction: column;
+      gap: 32px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1.hero-title {
+      font-size: 38px;
+    }
+    .hero-sub {
+      font-size: 16px;
+    }
+    .section-title {
+      font-size: 28px;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="wrap nav-inner">
+      <a href="#" class="logo">TOP <span>SPIN</span></a>
+
+      <ul class="nav-links">
+        <li><a class="navlink" href="#o-skoli">O školi</a></li>
+        <li><a class="navlink" href="#treneri">Treneri</a></li>
+        <li><a class="navlink" href="#probni-trening">Probni trening</a></li>
+        <li><a class="navlink" href="#lokacija">Lokacija</a></li>
+      </ul>
+
+      <a href="#kontakt" class="btn nav-cta">Prijavi se</a>
+
+      <button class="hamburger" id="hamburgerBtn" aria-label="Otvori meni" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-menu" id="mobileMenu">
+    <div class="wrap">
+      <a class="navlink" href="#o-skoli">O školi</a>
+      <a class="navlink" href="#treneri">Treneri</a>
+      <a class="navlink" href="#probni-trening">Probni trening</a>
+      <a class="navlink" href="#lokacija">Lokacija</a>
+      <a href="#kontakt" class="btn">Prijavi se</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <p class="hero-eyebrow">Top Spin škola tenisa - Kragujevac</p>
+        <h1 class="hero-title">Prvi servis počinje u Velikom parku</h1>
+        <p class="hero-sub">Učimo decu, tinejdžere i odrasle da igraju tenis, od prvog udarca reketom do prvog turnira. Dođi na probni trening i vidi kako to izgleda kod nas.</p>
+        <div class="hero-actions">
+          <a href="#kontakt" class="btn">Prijavi se za probni trening</a>
+          <a href="#treneri" class="btn btn-outline">Upoznaj trenere</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num">3</div>
+            <div class="hero-stat-label">trenera na terenu</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">5+</div>
+            <div class="hero-stat-label">godina uzrast za početak</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">1</div>
+            <div class="hero-stat-label">teren, Veliki park</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-img-placeholder" role="img" aria-label="Fotografija deteta i trenera na terenu u Velikom parku">
+        FOTOGRAFIJA - TRENING NA TERENU U VELIKOM PARKU
+      </div>
+    </div>
+  </section>
+
+  <section id="o-skoli">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="section-tag">O školi</p>
+          <h2 class="section-title">Teren je u parku, ne u nekoj hali daleko od svega</h2>
+          <p>Treniramo na terenu u Velikom parku u Kragujevcu. Nema vožnje kroz grad, nema traženja adrese - park znaju svi.</p>
+          <p>Radimo sa decom koja prvi put uzimaju reket u ruke, sa tinejdžerima koji se spremaju za takmičenja i sa odraslima koji su odlučili da konačno probaju tenis ili da vrate stari nivo igre.</p>
+          <p>Grupe su male, tako da svako dete na treningu zaista udara loptice, ne čeka red od pet minuta za jedan udarac.</p>
+          <ul class="about-list">
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#186338" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Treninzi za decu, tinejdžere i odrasle
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#186338" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              ITF i TSS licencirani treneri
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#186338" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Probni trening pre nego što se odlučiš
+            </li>
+          </ul>
+        </div>
+        <div class="about-img" role="img" aria-label="Fotografija terena za tenis u Velikom parku">
+          FOTOGRAFIJA - TEREN U VELIKOM PARKU
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="treneri">
+    <div class="wrap">
+      <p class="section-tag">Treneri</p>
+      <h2 class="section-title">Ljudi koji te uče da igraš</h2>
+      <p class="hero-sub" style="margin-bottom:0;">Troje trenera, tri različita stila predavanja. Neko voli tehniku od početka, neko voli da odmah baca decu u igru. Zajedno pokrivaju sve nivoe.</p>
+
+      <div class="coach-grid">
+        <div class="coach-card">
+          <div class="coach-photo" role="img" aria-label="Fotografija trenerke Zorice Petrov Cvetković">
+            FOTOGRAFIJA - ZORICA PETROV CVETKOVIĆ
+          </div>
+          <div class="coach-body">
+            <div class="coach-name">Zorica Petrov Cvetković</div>
+            <div class="coach-role">ITF i TSS trener</div>
+            <p class="coach-desc">Radi najviše sa najmlađima. Strpljiva je i ume da objasni tehniku tako da je i šestogodišnjak razume od prvog puta.</p>
+          </div>
+        </div>
+
+        <div class="coach-card">
+          <div class="coach-photo" role="img" aria-label="Fotografija trenera Marinković Dušana">
+            FOTOGRAFIJA - MARINKOVIĆ DUŠAN
+          </div>
+          <div class="coach-body">
+            <div class="coach-name">Marinković Dušan</div>
+            <div class="coach-role">ITF i TSS trener</div>
+            <p class="coach-desc">Vodi tinejdžere koji se spremaju za takmičenja. Fokusiran na taktiku i na to da se greške ne ponavljaju iz nedelje u nedelju.</p>
+          </div>
+        </div>
+
+        <div class="coach-card">
+          <div class="coach-photo" role="img" aria-label="Fotografija trenera Jovanović Bojana">
+            FOTOGRAFIJA - JOVANOVIĆ BOJAN
+          </div>
+          <div class="coach-body">
+            <div class="coach-name">Jovanović Bojan</div>
+            <div class="coach-role">Trener / sparing partner</div>
+            <p class="coach-desc">Igra sa odraslima koji žele partnera za rekreativni tenis ili žele da uvežbaju konkretan udarac pod pritiskom prave igre.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="probni-trening">
+    <div class="wrap">
+      <p class="section-tag">Probni trening</p>
+      <h2 class="section-title">Kako izgleda prvi dolazak na teren</h2>
+      <p class="hero-sub" style="margin-bottom:0;">Nema papirologije pre nego što probaš. Prvo dođeš, udariš par loptica, pa onda odlučiš.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>Pozoveš ili pišeš</h3>
+          <p>Javiš se na 0644494982 i kažeš ko treba da trenira - dete, tinejdžer ili ti sam.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>Dogovorimo termin</h3>
+          <p>Nađemo termin koji ti odgovara i kažemo koji trener vodi tu grupu ili individualni čas.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>Dođeš na teren</h3>
+          <p>Poneseš udobnu odeću i patike. Reket može biti naš, za probni trening ga ne moraš imati.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="section-tag">Za koga je škola</p>
+      <h2 class="section-title">Bilo da tek počinješ ili se vraćaš na teren</h2>
+
+      <div class="who-grid">
+        <div class="who-card">
+          <div class="who-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#186338" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+          </div>
+          <h3>Deca</h3>
+          <p>Grupe od 5 godina pa naviše. Učimo koordinaciju i osnovne udarce kroz igru, ne kroz dosadno ponavljanje.</p>
+        </div>
+        <div class="who-card">
+          <div class="who-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#186338" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4.5L5.5 20l2-7L2 9h7z"/></svg>
+          </div>
+          <h3>Tinejdžeri</h3>
+          <p>Za one koji već igraju i žele da se takmiče. Radimo na taktici, kondiciji i mentalnoj strani meča.</p>
+        </div>
+        <div class="who-card">
+          <div class="who-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#186338" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg>
+          </div>
+          <h3>Odrasli</h3>
+          <p>Za rekreativce, potpune početnike i one koji su nekad igrali i sad hoće da vrate formu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="lokacija">
+    <div class="wrap">
+      <p class="section-tag">Lokacija</p>
+      <h2 class="section-title">Nađi nas u Velikom parku</h2>
+
+      <div class="location-grid">
+        <div class="location-info">
+          <div class="location-row">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#186338" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <h4>Adresa</h4>
+              <p>Veliki park, Kragujevac</p>
+            </div>
+          </div>
+          <div class="location-row">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#186338" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.67 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.31 1.85.54 2.81.67A2 2 0 0 1 22 16.92z"/></svg>
+            <div>
+              <h4>Telefon</h4>
+              <a href="tel:0644494982">064 449 4982</a>
+            </div>
+          </div>
+          <div class="location-row">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#186338" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <div>
+              <h4>Kada treniramo</h4>
+              <p>Termini se dogovaraju telefonom, po grupama i po slobodnim terminima na terenu.</p>
+            </div>
+          </div>
+        </div>
+        <div class="map-placeholder" role="img" aria-label="Mapa lokacije terena u Velikom parku Kragujevac">
+          MAPA - VELIKI PARK, KRAGUJEVAC
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="kontakt">
+    <div class="wrap cta-inner">
+      <div>
+        <h2>Javi se i dogovori probni trening</h2>
+        <p>Piši ili zovi na broj ispod. Kažeš ko igra, koji uzrast, i nalazimo termin.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="tel:0644494982" class="btn btn-white">Pozovi 064 449 4982</a>
+        <span class="cta-phone">ili nas nađi u Velikom parku, Kragujevac</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">TOP <span>SPIN</span></div>
+          <p>Škola tenisa u Velikom parku, Kragujevac.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Stranica</h4>
+          <a href="#o-skoli">O školi</a>
+          <a href="#treneri">Treneri</a>
+          <a href="#probni-trening">Probni trening</a>
+          <a href="#lokacija">Lokacija</a>
+        </div>
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <a href="tel:0644494982">064 449 4982</a>
+          <a href="#">Veliki park, Kragujevac</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        Top Spin škola tenisa - Kragujevac
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburgerBtn.addEventListener('click', function () {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburgerBtn.classList.toggle('active');
+      hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    document.querySelectorAll('.mobile-menu a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.remove('open');
+        hamburgerBtn.classList.remove('active');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+
+</body>
+</html>
