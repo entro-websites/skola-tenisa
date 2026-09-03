@@ -288,7 +288,6 @@
   .hero-content { position: relative; z-index: 2; }
   .hero-title {
     color: var(--on-dark);
-    max-width: 14ch;
     margin-bottom: 24px;
   }
   .hero-sub {
@@ -354,31 +353,6 @@
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--green-light);
-  }
-
-  .strip {
-    background-color: var(--cream);
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-  }
-  .strip-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-faint);
-  }
-  .strip-inner .mark {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    letter-spacing: 0.08em;
-    color: var(--ink);
   }
 
   /* ===== O ŠKOLI ===== */
@@ -763,8 +737,11 @@
     .mobile-menu { display: none !important; }
     .club-grid { grid-template-columns: 1.25fr 1fr; align-items: stretch; }
     .club-photo { min-height: 100%; }
+  }
+
+  @media (min-width: 1200px) {
     .hero-cards { position: absolute; bottom: 56px; right: 48px; margin-top: 0; width: 560px; }
-    .hero-content { padding-right: 56px; max-width: 720px; }
+    .hero-content { padding-right: 56px; max-width: 900px; }
   }
 
   @media (max-width: 767px) {
@@ -772,6 +749,7 @@
     .section { padding-top: 72px; padding-bottom: 72px; }
     .club-panel, .dark-note, .sched-panel, .cta-panel { padding-left: 24px; padding-right: 24px; }
     .hero-stage { padding-top: 104px; padding-left: 20px; padding-right: 20px; }
+    .hero-title { font-size: clamp(36px, 9.5vw, 56px); }
     .stats { grid-template-columns: 1fr; }
     .sched-day { flex: 1 1 100%; }
     .sched-row .btn { width: 100%; justify-content: center; }
@@ -822,7 +800,7 @@
 
       <div class="hero-content">
         <p class="eyebrow eyebrow-dark" style="margin-bottom:20px;">Kragujevac — Veliki park</p>
-        <h1 class="display hero-title">Mesto gde počinje prvi servis</h1>
+        <h1 class="display hero-title">Mesto gde počinje<br>prvi servis</h1>
         <p class="hero-sub">Učimo decu, tinejdžere i odrasle da igraju tenis — od prvog udarca reketom do prvog turnira. Dođi na probni trening i vidi kako to izgleda kod nas.</p>
         <div class="hero-actions">
           <a href="tel:+381644494982" class="btn btn-light">Prijavi se za probni trening</a>
@@ -847,16 +825,6 @@
     </div>
   </div>
 </section>
-
-<div class="strip">
-  <div class="wrap">
-    <div class="strip-inner">
-      <span>Veliki park</span>
-      <span class="mark">TOP SPIN</span>
-      <span>ITF &amp; TSS treneri</span>
-    </div>
-  </div>
-</div>
 
 <!-- ===== O ŠKOLI ===== -->
 <section class="section" id="o-skoli">
